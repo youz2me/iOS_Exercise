@@ -23,6 +23,24 @@ class ViewController: UIViewController {
         collectionView.setCollectionViewLayout(createLayout(), animated: true)
         
         setDataSource()
+        
+        setSnapshot()
+    }
+    
+    private func setDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCollectionViewCell.id, for: indexPath) as? BannerCollectionViewCell else { return UICollectionViewCell() }
+            
+//            cell.config(title)
+            
+            return cell
+        })
+    }
+    
+    private func setSnapshot() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        
+        snapshot.appendSections([Section(id: "Banner")])
     }
     
     private func createLayout() -> UICollectionViewCompositionalLayout {
