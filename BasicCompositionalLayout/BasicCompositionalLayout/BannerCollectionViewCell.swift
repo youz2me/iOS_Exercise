@@ -20,6 +20,12 @@ class BannerCollectionViewCell: UICollectionViewCell {
         setUI()
     }
     
+    public func config(title: String, imageUrl: String) {
+        // title, image set
+        titleLabel.text = "Title"
+        // imageUrl
+    }
+    
     private func setUI() {
         /// Snapkit 사용
         self.addSubview(titleLabel)
@@ -33,12 +39,11 @@ class BannerCollectionViewCell: UICollectionViewCell {
         backgroundImage.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
-        public func config(title: String, imageUrl: String) {
-            /// title, image set
-            titleLabel.text = "Title"
-            // imageUrl
-        }
+    }
+    
+    // 필수적으로 넣어야 하지만 쓰이지는 않음
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 

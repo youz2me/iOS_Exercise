@@ -41,6 +41,16 @@ class ViewController: UIViewController {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         
         snapshot.appendSections([Section(id: "Banner")])
+        
+        let bannerItems = [
+            Item.banner(HomeItem(title: "교촌치킨", imageUrl: "https://fitfoodiefinds.com/wp-content/uploads/2021/05/chicken-marinade-7-1365x2048-1-768x1024.jpg")),
+            Item.banner(HomeItem(title: "굽네치킨", imageUrl: "https://fitfoodiefinds.com/wp-content/uploads/2021/05/chicken-marinade-7-1365x2048-1-768x1024.jpg")),
+            Item.banner(HomeItem(title: "푸라닭치킨", imageUrl: "https://fitfoodiefinds.com/wp-content/uploads/2021/05/chicken-marinade-7-1365x2048-1-768x1024.jpg"))
+        ]
+        
+        snapshot.appendItems(bannerItems, toSection: Section(id: "Banner"))
+        
+        dataSource?.apply(snapshot)
     }
     
     private func createLayout() -> UICollectionViewCompositionalLayout {

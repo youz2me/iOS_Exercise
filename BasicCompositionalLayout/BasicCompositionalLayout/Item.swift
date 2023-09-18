@@ -23,6 +23,6 @@ enum Item: Hashable {
 
 struct HomeItem: Hashable {
     let title: String
-    let subTitle: String? // 옵셔널하게 들어감
+    let subTitle: String? = "" // 옵셔널하게 들어감
     let imageUrl: String
 }
