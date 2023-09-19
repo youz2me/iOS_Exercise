@@ -18,6 +18,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        setUI()
+        
         collectionView.register(BannerCollectionViewCell.self, forCellWithReuseIdentifier: BannerCollectionViewCell.id)
         
         collectionView.setCollectionViewLayout(createLayout(), animated: true)
@@ -27,13 +29,29 @@ class ViewController: UIViewController {
         setSnapshot()
     }
     
+    private func setUI() {
+        self.view.addSubview(collectionView)
+        
+        collectionView.backgroundColor = .red
+        
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
     private func setDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCollectionViewCell.id, for: indexPath) as? BannerCollectionViewCell else { return UICollectionViewCell() }
             
-//            cell.config(title)
-            
-            return cell
+            switch itemIdentifier {
+            case .banner(let item):
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCollectionViewCell.id, for: indexPath) as? BannerCollectionViewCell else { return UICollectionViewCell() }
+                
+                cell.config(title: item.title, imageUrl: item.imageUrl)
+                
+                return cell
+            default:
+                return UICollectionViewCell()
+            }
         })
     }
     

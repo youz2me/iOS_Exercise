@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD69723B2ABA419400449D5C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DD69723A2ABA419400449D5C /* Kingfisher */; };
 		DDB6A3262AB4398000C563D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6A3252AB4398000C563D7 /* AppDelegate.swift */; };
 		DDB6A3282AB4398000C563D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6A3272AB4398000C563D7 /* SceneDelegate.swift */; };
 		DDB6A32A2AB4398000C563D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB6A3292AB4398000C563D7 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD69723B2ABA419400449D5C /* Kingfisher in Frameworks */,
 				DDB6A33F2AB43FCE00C563D7 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +95,7 @@
 			name = BasicCompositionalLayout;
 			packageProductDependencies = (
 				DDB6A33E2AB43FCE00C563D7 /* SnapKit */,
+				DD69723A2ABA419400449D5C /* Kingfisher */,
 			);
 			productName = BasicCompositionalLayout;
 			productReference = DDB6A3222AB4398000C563D7 /* BasicCompositionalLayout.app */;
@@ -124,6 +127,7 @@
 			mainGroup = DDB6A3192AB4398000C563D7;
 			packageReferences = (
 				DDB6A33D2AB43FCE00C563D7 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				DD6972392ABA419400449D5C /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = DDB6A3232AB4398000C563D7 /* Products */;
 			projectDirPath = "";
@@ -376,6 +380,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DD6972392ABA419400449D5C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		DDB6A33D2AB43FCE00C563D7 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -387,6 +399,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DD69723A2ABA419400449D5C /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD6972392ABA419400449D5C /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		DDB6A33E2AB43FCE00C563D7 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DDB6A33D2AB43FCE00C563D7 /* XCRemoteSwiftPackageReference "SnapKit" */;
