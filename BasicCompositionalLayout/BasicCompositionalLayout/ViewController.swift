@@ -49,6 +49,9 @@ class ViewController: UIViewController {
                 cell.config(title: item.title, imageUrl: item.imageUrl)
                 
                 return cell
+            case .normalCarousel(let item):
+                // Cell 리턴
+                
             default:
                 return UICollectionViewCell()
             }
@@ -62,8 +65,8 @@ class ViewController: UIViewController {
         
         let bannerItems = [
             Item.banner(HomeItem(title: "교촌치킨", imageUrl: "https://fitfoodiefinds.com/wp-content/uploads/2021/05/chicken-marinade-7-1365x2048-1-768x1024.jpg")),
-            Item.banner(HomeItem(title: "굽네치킨", imageUrl: "https://fitfoodiefinds.com/wp-content/uploads/2021/05/chicken-marinade-7-1365x2048-1-768x1024.jpg")),
-            Item.banner(HomeItem(title: "푸라닭치킨", imageUrl: "https://fitfoodiefinds.com/wp-content/uploads/2021/05/chicken-marinade-7-1365x2048-1-768x1024.jpg"))
+            Item.banner(HomeItem(title: "굽네치킨", imageUrl: "https://hips.hearstapps.com/hmg-prod/images/dutch-oven-roast-chicken-recipe-2-1664219307.jpg")),
+            Item.banner(HomeItem(title: "푸라닭치킨", imageUrl: "https://static01.nyt.com/images/2022/05/18/dining/as-baked-chicken/as-baked-chicken-superJumbo-v2.jpg"))
         ]
         
         snapshot.appendItems(bannerItems, toSection: Section(id: "Banner"))
@@ -75,7 +78,18 @@ class ViewController: UIViewController {
         // sectionIndex에 따라 정해진 레이아웃을 리턴
         return UICollectionViewCompositionalLayout(sectionProvider: {[weak self] sectionIndex, _ in
             
-            return self?.createBannerSection()
+            switch sectionIndex {
+            case 0:
+                return self?.createBannerSection()
+            case 1:
+                // 2번째
+                return self?.createBannerSection()
+            case 2:
+                // 3번째
+                return self?.createBannerSection()
+            default:
+                return self?.createBannerSection()
+            }
         })
     }
     
